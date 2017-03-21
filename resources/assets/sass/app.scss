@@ -1,0 +1,24 @@
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+// Variables
+// @import "variables";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+//Font-awesome
+@import "node_modules/font-awesome/scss/font-awesome";
+
+textarea {
+	resize: none;
+}
+.pnl-sidebar { 
+	padding: 0px;
+}
+.pnl-sidebar table tr td { 
+	padding-left: 15px;
+}
+.pnl-sidebar .tbl-sidebar {
+	margin-bottom: 0px;
+}
