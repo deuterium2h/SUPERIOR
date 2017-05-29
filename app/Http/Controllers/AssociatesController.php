@@ -127,4 +127,14 @@ class AssociatesController extends Controller
 
 		return redirect('associates');
 	}
+
+	public function print($id)
+	{
+		return 'hello';
+	}
+	
+	public function export($id)
+	{
+		return 'world';
+	}
 }

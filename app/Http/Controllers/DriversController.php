@@ -127,4 +127,14 @@ class DriversController extends Controller
 
 		return redirect('drivers');
 	}
+
+	public function print($id)
+	{
+		return 'hello';
+	}
+	
+	public function export($id)
+	{
+		return 'world';
+	}
 }

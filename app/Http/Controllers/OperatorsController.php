@@ -129,4 +129,14 @@ class OperatorsController extends Controller
 
 		return redirect('operators');
 	}
+
+	public function print($id)
+	{
+		return 'hello';
+	}
+	
+	public function export($id)
+	{
+		return 'world';
+	}
 }

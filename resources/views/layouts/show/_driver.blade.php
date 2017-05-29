@@ -1,15 +1,23 @@
 <div class="panel panel-primary">
 	<div class="panel-heading">
-	<strong>{{ $driver->last_name }}, {{ $driver->first_name }} {{ $driver->middle_name }}</strong> | Driver ID: {{ $driver->id }}
-	<form slot="delete" class="pull-right" method="POST" action="/drivers/{{ $driver->id }}">
-		{!! csrf_field() !!}
-		<input type="hidden" name="_method" value="DELETE">
-		<button type="submit" class="btn btn-danger btn-xs "><i class="fa fa-trash-o fa-lg"></i></button>
-	</form>
-	<span class="pull-right">&nbsp;</span><span class="pull-right">&nbsp;</span>
-	<a href="/drivers/{{ $driver->id }}/edit" slot="update" class="btn btn-success btn-xs pull-right">
-		<i class="fa fa-pencil-square-o fa-lg"></i>
-	</a>
+		<strong>{{ $driver->last_name }}, {{ $driver->first_name }} {{ $driver->middle_name }}</strong> | Driver ID: {{ $driver->id }}
+		<form slot="delete" class="pull-right" method="POST" action="/drivers/{{ $driver->id }}">
+			{!! csrf_field() !!}
+			<input type="hidden" name="_method" value="DELETE">
+			<button type="submit" class="btn btn-danger btn-xs "><i class="fa fa-trash-o fa-lg"></i></button>
+		</form>
+		<span class="pull-right">&nbsp;</span><span class="pull-right">&nbsp;</span>
+		<a href="/drivers/{{ $driver->id }}/edit" class="btn btn-success btn-xs pull-right">
+			<i class="fa fa-pencil-square-o fa-lg"></i>
+		</a>
+		<span class="pull-right">&nbsp;</span><span class="pull-right">&nbsp;</span>
+		<a href="/drivers/{{ $driver->id }}/print" class="btn btn-info btn-xs pull-right">
+			<i class="fa fa-print fa-lg"></i>
+		</a>
+		<span class="pull-right">&nbsp;</span><span class="pull-right">&nbsp;</span>
+		<a href="/drivers/{{ $driver->id }}/export" class="btn btn-warning btn-xs pull-right">
+			<i class="fa fa-file-text-o fa-lg"></i>
+		</a>
 	</div>
 	<div class="panel-body">
 		<legend>Driver's Information</legend>

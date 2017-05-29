@@ -1,15 +1,23 @@
 <div class="panel panel-primary">
 	<div class="panel-heading">
-	<strong>{{ $associate->last_name }}, {{ $associate->first_name }} {{ $associate->middle_name }}</strong> | Associate ID: {{ $associate->id }}
-	<form slot="delete" class="pull-right" method="POST" action="/associates/{{ $associate->id }}">
-		{!! csrf_field() !!}
-		<input type="hidden" name="_method" value="DELETE">
-		<button type="submit" class="btn btn-danger btn-xs "><i class="fa fa-trash-o fa-lg"></i></button>
-	</form>
-	<span class="pull-right">&nbsp;</span><span class="pull-right">&nbsp;</span>
-	<a href="/associates/{{ $associate->id }}/edit" slot="update" class="btn btn-success btn-xs pull-right">
-		<i class="fa fa-pencil-square-o fa-lg"></i>
-	</a>
+		<strong>{{ $associate->last_name }}, {{ $associate->first_name }} {{ $associate->middle_name }}</strong> | Associate ID: {{ $associate->id }}
+		<form slot="delete" class="pull-right" method="POST" action="/associates/{{ $associate->id }}">
+			{!! csrf_field() !!}
+			<input type="hidden" name="_method" value="DELETE">
+			<button type="submit" class="btn btn-danger btn-xs "><i class="fa fa-trash-o fa-lg"></i></button>
+		</form>
+		<span class="pull-right">&nbsp;</span><span class="pull-right">&nbsp;</span>
+		<a href="/associates/{{ $associate->id }}/edit" class="btn btn-success btn-xs pull-right">
+			<i class="fa fa-pencil-square-o fa-lg"></i>
+		</a>
+		<span class="pull-right">&nbsp;</span><span class="pull-right">&nbsp;</span>
+		<a href="/associates/{{ $associate->id }}/print" class="btn btn-info btn-xs pull-right">
+			<i class="fa fa-print fa-lg"></i>
+		</a>
+		<span class="pull-right">&nbsp;</span><span class="pull-right">&nbsp;</span>
+		<a href="/associates/{{ $associate->id }}/export" class="btn btn-warning btn-xs pull-right">
+			<i class="fa fa-file-text-o fa-lg"></i>
+		</a>
 	</div>
 	<div class="panel-body">
 		<legend>Applicant's Information</legend>

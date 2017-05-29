@@ -130,13 +130,19 @@ class RegularsController extends Controller
 		return redirect('regulars');
 	}
 
-	public function export()
+	public function print($id)
+	{
+		return 'hello';
+	}
+	
+	public function export($id)
 	{
 		// $regular = Regular::latest('updated_at')->first();
 		// return view('layouts.pdf.regular', compact('regular'));
 		// $pdf = App::make('dompdf.wrapper');
 		// $pdf->loadHTML('<h1>Test</h1>');
-		$pdf = PDF::loadView('layouts.pdf.regular');
-		return $pdf->stream('reg.pdf');
+		// $pdf = PDF::loadView('layouts.pdf.regular');
+		// return $pdf->stream('reg.pdf');
+		return 'world';
 	}
 }

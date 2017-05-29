@@ -123,4 +123,14 @@ class VehiclesController extends Controller
 
 		return back();
 	}
+
+	public function print($id)
+	{
+		return 'hello';
+	}
+	
+	public function export($id)
+	{
+		return 'world';
+	}
 }

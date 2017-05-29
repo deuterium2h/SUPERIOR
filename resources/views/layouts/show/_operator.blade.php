@@ -1,15 +1,23 @@
 <div class="panel panel-primary">
 	<div class="panel-heading">
-	<strong>{{ $operator->last_name }}, {{ $operator->first_name }} {{ $operator->middle_name }}</strong> | Operator ID: {{ $operator->id }}
-	<form slot="delete" class="pull-right" method="POST" action="/operators/{{ $operator->id }}">
-		{!! csrf_field() !!}
-		<input type="hidden" name="_method" value="DELETE">
-		<button type="submit" class="btn btn-danger btn-xs "><i class="fa fa-trash-o fa-lg"></i></button>
-	</form>
-	<span class="pull-right">&nbsp;</span><span class="pull-right">&nbsp;</span>
-	<a href="/operators/{{ $operator->id }}/edit" slot="update" class="btn btn-success btn-xs pull-right">
-		<i class="fa fa-pencil-square-o fa-lg"></i>
-	</a>
+		<strong>{{ $operator->last_name }}, {{ $operator->first_name }} {{ $operator->middle_name }}</strong> | Operator ID: {{ $operator->id }}
+		<form slot="delete" class="pull-right" method="POST" action="/operators/{{ $operator->id }}">
+			{!! csrf_field() !!}
+			<input type="hidden" name="_method" value="DELETE">
+			<button type="submit" class="btn btn-danger btn-xs "><i class="fa fa-trash-o fa-lg"></i></button>
+		</form>
+		<span class="pull-right">&nbsp;</span><span class="pull-right">&nbsp;</span>
+		<a href="/operators/{{ $operator->id }}/edit" class="btn btn-success btn-xs pull-right">
+			<i class="fa fa-pencil-square-o fa-lg"></i>
+		</a>
+		<span class="pull-right">&nbsp;</span><span class="pull-right">&nbsp;</span>
+		<a href="/operators/{{ $operator->id }}/print" class="btn btn-info btn-xs pull-right">
+			<i class="fa fa-print fa-lg"></i>
+		</a>
+		<span class="pull-right">&nbsp;</span><span class="pull-right">&nbsp;</span>
+		<a href="/operators/{{ $operator->id }}/export" class="btn btn-warning btn-xs pull-right">
+			<i class="fa fa-file-text-o fa-lg"></i>
+		</a>
 	</div>
 	<div class="panel-body">
 		<legend>Operator's Information</legend>

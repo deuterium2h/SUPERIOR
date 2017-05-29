@@ -1,28 +1,46 @@
 <?php
 
-use App\Driver;
-use App\Regular;
-use App\Vehicle;
-use App\Operator;
-use App\Associate;
-use App\VehiclePhoto;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
+    private $tables = [
+        'regulars',
+        'associates',
+        'operators',
+        'drivers',
+        'vehicles'
+    ];
+    
     public function run()
     {
-    	//Enable truncate to generate a fresh list of data
-    	// Regular::truncate();
-    	// Associate::truncate();
-    	// Operator::truncate();
-    	// Driver::truncate();
-    	// VehiclePhoto::truncate();
-    	// Vehicle::truncate();
-		$this->call('RegularsTableSeeder');
-		$this->call('AssociatesTableSeeder');
-		$this->call('OperatorsTableSeeder');
-		$this->call('DriversTableSeeder');
-		$this->call('VehiclesTableSeeder');
+    	$this->clearDatabase();
+        $this->seeds();
+    }
+
+    /**
+     * Truncate all seeded tables in the database.
+     * 
+     * @return $this
+     */
+    private function clearDatabase()
+    {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        foreach ($this->tables as $tableName) {
+            DB::table($tableName)->truncate();
+        }
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
+    }
+
+    /**
+     * Database Seeders.
+     * 
+     * @return $this 
+     */
+    protected function seeds()
+    {
+        foreach ($this->tables as $tableName) {
+            $this->call(str_finish(str_replace('_', '', title_case($tableName)), 'TableSeeder'));
+        }
     }
 }
