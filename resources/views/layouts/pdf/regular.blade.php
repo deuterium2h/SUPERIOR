@@ -113,7 +113,7 @@
 	<div>
 		<img src="logoSmall.png" style="float: top; margin-top: -20px;">
 		<center><b><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUPERIOR TRANSPORT COOPERATIVE</h3></b></center>
-		<div class="jumbotron">
+		{{-- <div class="jumbotron">
 			<h1>Hello</h1>
 			<p>aksdjaskd kasjdkajsdkajs aksdjaksdjaksj kajsdkajskdjas</p>
 		</div>
@@ -128,12 +128,13 @@
 				&copy; sdkskdksa
 			</div>
 		</div>
+	</div><br> --}}
+	<div style="margin-top: 2em; background: blue; border: solid 2px ;">
+		&nbsp;<b style="color: white;">Regular Member</b>
 	</div><br>
-	<div style="background: blue; border: solid 2px ;">
-		&nbsp;<b>Regular Member</b>
-	</div><br>
-	<img src="photos/members/default.png" style="float: right; border: solid 2px; width: 150px; height: 150px; margin-top: -15px;">
-	<div style="margin-bottom: 20px;"><b>Complete Name:</b> Dimacuha, Dan Emmanuel Cruz </div>
-	<div style="margin-bottom: 20px;"><b>Address:</b> B-11 L-14 Opal St., Golden City Subd., Brgy. Dolores, Taytay, Rizal</div>
+	<img src="photos/members/{{ $regular->avatar }}" style="float: right; border: solid 2px; width: 130px; height: 130px; margin-top: -15px;">
+	<div style="margin-bottom: 15px;"><b>Complete Name:</b> {{ $regular->last_name }}, {{ $regular->first_name }} {{ $regular->middle_name }} </div>
+	<div style="margin-bottom: 15px;"><b>Address:</b> {{ $regular->address }}</div>
+
 </body>
 </html>
