@@ -130,16 +130,15 @@ class RegularsController extends Controller
 
 	public function print($id)
 	{
-		return 'hello';
+		$regular = Regular::findOrFail($id);
+		$pdf = PDF::loadView('layouts.pdf.regular', compact('regular'));
+		return $pdf->stream($regular->id.'-'.$regular->plate_num);
 	}
 	
 	public function export($id)
 	{
-		// return view('layouts.pdf.regular', compact('regular'));
-		// $pdf = App::make('dompdf.wrapper');
-		// $pdf->loadHTML('<h1>Test</h1>');
 		$regular = Regular::findOrFail($id);
 		$pdf = PDF::loadView('layouts.pdf.regular', compact('regular'));
-		return $pdf->stream('reg.pdf');
+		return $pdf->download($regular->id.'-'.$regular->plate_num);
 	}
 }

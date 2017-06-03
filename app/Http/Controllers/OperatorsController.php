@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Operator;
-
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
-
-use Illuminate\Support\Facades\DB;
 
 class OperatorsController extends Controller
 {
@@ -132,11 +130,15 @@ class OperatorsController extends Controller
 
 	public function print($id)
 	{
-		return 'hello';
+		$operator = Operator::findOrFail($id);
+		$pdf = PDF::loadView('layouts.pdf.operator', compact('operator'));
+		return $pdf->stream($operator->id.'-'.$operator->last_name);
 	}
 	
 	public function export($id)
 	{
-		return 'world';
+		$operator = Operator::findOrFail($id);
+		$pdf = PDF::loadView('layouts.pdf.operator', compact('operator'));
+		return $pdf->download($operator->id.'-'.$operator->last_name);
 	}
 }

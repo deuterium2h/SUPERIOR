@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Driver;
-
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 
 class DriversController extends Controller
@@ -130,11 +130,15 @@ class DriversController extends Controller
 
 	public function print($id)
 	{
-		return 'hello';
+		$driver = Driver::findOrFail($id);
+		$pdf = PDF::loadView('layouts.pdf.driver', compact('driver'));
+		return $pdf->stream($driver->id.'-'.$driver->last_name);
 	}
 	
 	public function export($id)
 	{
-		return 'world';
+		$driver = Driver::findOrFail($id);
+		$pdf = PDF::loadView('layouts.pdf.driver', compact('driver'));
+		return $pdf->download($driver->id.'-'.$driver->last_name);
 	}
 }

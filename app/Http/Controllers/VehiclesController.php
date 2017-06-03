@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
+use App\Http\Requests\VehicleRequest;
+use App\Operator;
 use App\Vehicle;
 use App\VehiclePhoto;
-use App\Operator;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Database\Eloquent\Builder;
-use App\Http\Requests\VehicleRequest;
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class VehiclesController extends Controller
 {
@@ -126,11 +126,15 @@ class VehiclesController extends Controller
 
 	public function print($id)
 	{
-		return 'hello';
+		$vehicle = Vehicle::findOrFail($id);
+		$pdf = PDF::loadView('layouts.pdf.vehicle', compact('vehicle'));
+		return $pdf->stream($vehicle->id.'-'.$vehicle->last_name);
 	}
 	
 	public function export($id)
 	{
-		return 'world';
+		$vehicle = Vehicle::findOrFail($id);
+		$pdf = PDF::loadView('layouts.pdf.vehicle', compact('vehicle'));
+		return $pdf->download($vehicle->id.'-'.$vehicle->last_name);
 	}
 }

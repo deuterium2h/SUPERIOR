@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Associate;
-
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 
 class AssociatesController extends Controller
@@ -130,11 +130,15 @@ class AssociatesController extends Controller
 
 	public function print($id)
 	{
-		return 'hello';
+		$associate = Associate::findOrFail($id);
+		$pdf = PDF::loadView('layouts.pdf.associate', compact('associate'));
+		return $pdf->stream($associate->id.'-'.$associate->last_name);
 	}
 	
 	public function export($id)
 	{
-		return 'world';
+		$associate = Associate::findOrFail($id);
+		$pdf = PDF::loadView('layouts.pdf.associate', compact('associate'));
+		return $pdf->download($associate->id.'-'.$associate->last_name);
 	}
 }
