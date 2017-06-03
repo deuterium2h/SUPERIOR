@@ -132,13 +132,13 @@ class AssociatesController extends Controller
 	{
 		$associate = Associate::findOrFail($id);
 		$pdf = PDF::loadView('layouts.pdf.associate', compact('associate'));
-		return $pdf->stream($associate->id.'-'.$associate->last_name);
+		return $pdf->stream($associate->id.'-'.$associate->last_name.'.pdf');
 	}
 	
 	public function export($id)
 	{
 		$associate = Associate::findOrFail($id);
 		$pdf = PDF::loadView('layouts.pdf.associate', compact('associate'));
-		return $pdf->download($associate->id.'-'.$associate->last_name);
+		return $pdf->download($associate->id.'-'.$associate->last_name.'.pdf');
 	}
 }

@@ -128,13 +128,13 @@ class VehiclesController extends Controller
 	{
 		$vehicle = Vehicle::findOrFail($id);
 		$pdf = PDF::loadView('layouts.pdf.vehicle', compact('vehicle'));
-		return $pdf->stream($vehicle->id.'-'.$vehicle->last_name);
+		return $pdf->stream($vehicle->id.'-'.$vehicle->plate_num.'.pdf');
 	}
 	
 	public function export($id)
 	{
 		$vehicle = Vehicle::findOrFail($id);
 		$pdf = PDF::loadView('layouts.pdf.vehicle', compact('vehicle'));
-		return $pdf->download($vehicle->id.'-'.$vehicle->last_name);
+		return $pdf->download($vehicle->id.'-'.$vehicle->plate_num.'.pdf');
 	}
 }

@@ -132,13 +132,13 @@ class DriversController extends Controller
 	{
 		$driver = Driver::findOrFail($id);
 		$pdf = PDF::loadView('layouts.pdf.driver', compact('driver'));
-		return $pdf->stream($driver->id.'-'.$driver->last_name);
+		return $pdf->stream($driver->id.'-'.$driver->last_name.'.pdf');
 	}
 	
 	public function export($id)
 	{
 		$driver = Driver::findOrFail($id);
 		$pdf = PDF::loadView('layouts.pdf.driver', compact('driver'));
-		return $pdf->download($driver->id.'-'.$driver->last_name);
+		return $pdf->download($driver->id.'-'.$driver->last_name.'.pdf');
 	}
 }

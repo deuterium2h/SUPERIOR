@@ -132,13 +132,13 @@ class OperatorsController extends Controller
 	{
 		$operator = Operator::findOrFail($id);
 		$pdf = PDF::loadView('layouts.pdf.operator', compact('operator'));
-		return $pdf->stream($operator->id.'-'.$operator->last_name);
+		return $pdf->stream($operator->id.'-'.$operator->last_name.'.pdf');
 	}
 	
 	public function export($id)
 	{
 		$operator = Operator::findOrFail($id);
 		$pdf = PDF::loadView('layouts.pdf.operator', compact('operator'));
-		return $pdf->download($operator->id.'-'.$operator->last_name);
+		return $pdf->download($operator->id.'-'.$operator->last_name.'.pdf');
 	}
 }
