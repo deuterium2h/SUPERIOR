@@ -20,7 +20,7 @@
 				<od-card name="{{ $operator->last_name }}, {{ $operator->first_name }} {{ $operator->middle_name }}" 
 						 type="Operator ID: {{ $operator->id}}" 
 						 address="{{ $operator->city_address}}"
-						 contact-number="{{ $operator->contact_num }}">
+						 number="{{ $operator->contact_num }}">
 					<form slot="delete" class="pull-right" method="POST" action="/operators/{{ $operator->id }}">
 						{!! csrf_field() !!}
 						<input type="hidden" name="_method" value="DELETE">

@@ -15,7 +15,7 @@ require('./lity');
  */
 
 Vue.component('od-card', {
-	props: ['name', 'avatar', 'type', 'address', 'contact'],
+	props: ['name', 'avatar', 'type', 'address', 'number'],
 
 	template: `
 		<div class="panel panel-default">
@@ -34,8 +34,8 @@ Vue.component('od-card', {
 					<div id="address" name="address">{{ address }}</div>
 				</div>
 				<div class="form-group">
-					<label for="contact-number" class="control-label">Contact Number: </label>
-					<div id="contact-number" name="contact-number">{{ contact-number }}</div>
+					<label for="number" class="control-label">Contact Number: </label>
+					<div id="number" name="number">{{ number }}</div>
 				</div>
 			</div>
 		</div>

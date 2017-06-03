@@ -20,7 +20,7 @@
 				<od-card name="{{ $driver->last_name }}, {{ $driver->first_name }} {{ $driver->middle_name }}" 
 						 type="Driver ID: {{ $driver->id}}" 
 						 address="{{ $driver->city_address}}" 
-						 contact-number="{{ $driver->contact_num }}">
+						 number="{{ $driver->contact_num }}">
 					<form slot="delete" class="pull-right" method="POST" action="/drivers/{{ $driver->id }}">
 						{!! csrf_field() !!}
 						<input type="hidden" name="_method" value="DELETE">
