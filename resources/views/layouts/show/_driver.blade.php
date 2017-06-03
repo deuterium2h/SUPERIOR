@@ -58,7 +58,7 @@
 				{!! Form::label('province_address', 'Province Address:') !!}
 				<div id="province_address" name="province_address"><p>{{ $driver->province_address }}</p></div>
 			</div>
-			<div class="col-md-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;32</div>
+			<div class="col-md-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 		</div>&nbsp;
 		<div class="form-group">
 			<div class="col-md-3">
