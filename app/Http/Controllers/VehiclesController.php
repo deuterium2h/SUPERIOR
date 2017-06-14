@@ -7,7 +7,7 @@ use App\Http\Requests\VehicleRequest;
 use App\Operator;
 use App\Vehicle;
 use App\VehiclePhoto;
-use Barryvdh\DomPDF\PDF;
+use PDF;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 

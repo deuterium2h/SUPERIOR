@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Operator;
-use Barryvdh\DomPDF\PDF;
+use PDF;
 use Illuminate\Http\Request;
 
 class OperatorsController extends Controller

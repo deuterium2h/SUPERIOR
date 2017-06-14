@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Associate;
-use Barryvdh\DomPDF\PDF;
+use PDF;
 use Illuminate\Http\Request;
 
 class AssociatesController extends Controller

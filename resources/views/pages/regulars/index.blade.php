@@ -18,7 +18,7 @@
 				{{ $regulars->links() }}
 				@foreach($regulars as $regular)
 				<ra-card name="{{ $regular->last_name }}, {{ $regular->first_name }} {{ $regular->middle_name }}"
-						 type="Driver ID: {{ $regular->id}}" 
+						 type="Regular ID: {{ $regular->id}}" 
 						 address="{{ $regular->address}}" 
 						 payment="{{ $regular->amount_paid }}">
 					<form slot="delete" class="pull-right" method="POST" action="/regulars/{{ $regular->id }}">
